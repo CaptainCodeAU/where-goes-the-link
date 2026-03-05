@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Where Goes the Link",
+  "version": "1.0.1",
+  "description": "Expand shortened URLs without visiting them. Reveals the full redirect chain and copies the real destination to your clipboard. Powered by the FREE UnshortLink API.",
+  "icons": {
+    "16": "icons/icon-default-16.png",
+    "32": "icons/icon-default-32.png",
+    "48": "icons/icon-default-48.png",
+    "128": "icons/icon-default-128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon-default-16.png",
+      "32": "icons/icon-default-32.png",
+      "48": "icons/icon-default-48.png",
+      "128": "icons/icon-default-128.png"
+    },
+    "default_title": "Where Goes the Link — Click to expand URL"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "contextMenus",
+    "notifications",
+    "storage",
+    "offscreen",
+    "clipboardWrite"
+  ],
+  "host_permissions": ["https://core.unshortlink.com/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["content-overlay.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
