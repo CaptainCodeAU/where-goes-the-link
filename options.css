@@ -1,0 +1,232 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background: #f5f5f7;
+  color: #1a1a1a;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.wgi-options {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.wgi-header {
+  margin-bottom: 32px;
+}
+
+.wgi-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.wgi-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.wgi-about {
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* Two-column layout */
+.wgi-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .wgi-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wgi-section {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.wgi-section h2 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.wgi-field {
+  margin-bottom: 14px;
+}
+
+.wgi-field:last-child {
+  margin-bottom: 0;
+}
+
+.wgi-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #444;
+}
+
+.wgi-field select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #1a1a1a;
+  transition: border-color 0.15s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+.wgi-field select:focus {
+  outline: none;
+  border-color: #4a90d9;
+  background-color: #fff;
+}
+
+.wgi-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+}
+
+.wgi-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2d2d2d;
+  cursor: pointer;
+}
+
+.wgi-field input[type="text"],
+.wgi-field input[type="url"],
+.wgi-field input[type="password"],
+.wgi-field input[type="number"],
+.wgi-field input[type="date"] {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #1a1a1a;
+  transition: border-color 0.15s;
+}
+
+.wgi-field input:focus {
+  outline: none;
+  border-color: #4a90d9;
+  background: #fff;
+}
+
+.wgi-hint {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  margin-top: 3px;
+}
+
+.wgi-note {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  background: #fafafa;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+/* Password toggle */
+.wgi-password-wrap {
+  display: flex;
+  gap: 6px;
+}
+
+.wgi-password-wrap input {
+  flex: 1;
+}
+
+.wgi-toggle-vis {
+  padding: 8px 12px;
+  font-size: 12px;
+  background: #eee;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #555;
+}
+
+.wgi-toggle-vis:hover {
+  background: #e0e0e0;
+}
+
+/* Actions */
+.wgi-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.wgi-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.wgi-btn-primary {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.wgi-btn-primary:hover {
+  background: #444;
+}
+
+.wgi-save-status {
+  font-size: 13px;
+  color: #2eae52;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.wgi-save-status.wgi-visible {
+  opacity: 1;
+}

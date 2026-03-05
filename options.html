@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where Goes the Link — Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wgi-options">
+      <header class="wgi-header">
+        <h1>Where Goes the Link</h1>
+        <p class="wgi-subtitle">Settings</p>
+        <p class="wgi-about">
+          Resolve shortened URLs without visiting them — ideal when your
+          firewall blocks short URL domains. The lookup happens via a
+          third-party API, so your blocklist rules stay intact. Expect a slight
+          delay while the API follows the redirect chain.
+        </p>
+      </header>
+
+      <form id="settings-form" autocomplete="off">
+        <div class="wgi-columns">
+          <div class="wgi-column">
+            <!-- API Configuration -->
+            <section class="wgi-section">
+              <h2>API Configuration</h2>
+              <div class="wgi-field">
+                <label for="apiKey">API Key</label>
+                <div class="wgi-password-wrap">
+                  <input
+                    type="password"
+                    id="apiKey"
+                    name="apiKey"
+                    placeholder="Paste your UnshortLink API key"
+                    spellcheck="false"
+                  />
+                  <button
+                    type="button"
+                    class="wgi-toggle-vis"
+                    data-target="apiKey"
+                    aria-label="Toggle visibility"
+                  >
+                    Show
+                  </button>
+                </div>
+              </div>
+              <div class="wgi-field">
+                <label for="apiBaseUrl">API Base URL</label>
+                <input type="url" id="apiBaseUrl" name="apiBaseUrl" />
+              </div>
+              <div class="wgi-field">
+                <label for="apiEndpointPath">API Endpoint Path</label>
+                <input
+                  type="text"
+                  id="apiEndpointPath"
+                  name="apiEndpointPath"
+                />
+              </div>
+            </section>
+
+            <!-- Advanced API Parameters -->
+            <section class="wgi-section">
+              <h2>Advanced API Parameters</h2>
+              <div class="wgi-field">
+                <label for="apiMaxRedirects">Max Redirects</label>
+                <input
+                  type="number"
+                  id="apiMaxRedirects"
+                  name="apiMaxRedirects"
+                  min="1"
+                  max="50"
+                />
+                <span class="wgi-hint"
+                  >Maximum redirect hops the API follows</span
+                >
+              </div>
+              <div class="wgi-field">
+                <label for="apiTimeout">Request Timeout (ms)</label>
+                <input
+                  type="number"
+                  id="apiTimeout"
+                  name="apiTimeout"
+                  min="1000"
+                  max="60000"
+                  step="1000"
+                />
+                <span class="wgi-hint"
+                  >Timeout per request in the redirect chain</span
+                >
+              </div>
+            </section>
+
+            <!-- Quota Manual Override -->
+            <section class="wgi-section">
+              <h2>Quota (Manual Override)</h2>
+              <p class="wgi-note">
+                These values are used as fallbacks when the API response header
+                is unavailable.
+              </p>
+              <div class="wgi-field">
+                <label for="quotaTotal">Total Plan Calls</label>
+                <input
+                  type="number"
+                  id="quotaTotal"
+                  name="quotaTotal"
+                  min="1"
+                />
+              </div>
+              <div class="wgi-field">
+                <label for="quotaStartDate">Billing Cycle Start Date</label>
+                <input type="date" id="quotaStartDate" name="quotaStartDate" />
+              </div>
+            </section>
+          </div>
+
+          <div class="wgi-column">
+            <!-- Badge Display -->
+            <section class="wgi-section">
+              <h2>Badge Display</h2>
+              <div class="wgi-field">
+                <label class="wgi-checkbox-label">
+                  <input
+                    type="checkbox"
+                    id="badgeEnabled"
+                    name="badgeEnabled"
+                  />
+                  Show badge number on icon
+                </label>
+              </div>
+              <div class="wgi-field">
+                <label for="badgeMode">Badge shows</label>
+                <select id="badgeMode" name="badgeMode">
+                  <option value="days">Days until quota reset</option>
+                  <option value="calls">API calls remaining</option>
+                </select>
+              </div>
+            </section>
+
+            <!-- Visual Feedback Timing -->
+            <section class="wgi-section">
+              <h2>Visual Feedback Timing</h2>
+              <div class="wgi-field">
+                <label for="iconProcessingDuration"
+                  >Processing Icon Duration (ms)</label
+                >
+                <input
+                  type="number"
+                  id="iconProcessingDuration"
+                  name="iconProcessingDuration"
+                  min="0"
+                  step="500"
+                />
+                <span class="wgi-hint">0 = show only during API call</span>
+              </div>
+              <div class="wgi-field">
+                <label for="iconSuccessDuration"
+                  >Success Icon Duration (ms)</label
+                >
+                <input
+                  type="number"
+                  id="iconSuccessDuration"
+                  name="iconSuccessDuration"
+                  min="0"
+                  step="500"
+                />
+                <span class="wgi-hint">0 = skip green icon</span>
+              </div>
+              <div class="wgi-field">
+                <label for="iconErrorDuration">Error Icon Duration (ms)</label>
+                <input
+                  type="number"
+                  id="iconErrorDuration"
+                  name="iconErrorDuration"
+                  min="0"
+                  step="500"
+                />
+                <span class="wgi-hint">0 = skip red icon</span>
+              </div>
+            </section>
+
+            <!-- Notification Timing -->
+            <section class="wgi-section">
+              <h2>Notification Timing</h2>
+              <div class="wgi-field">
+                <label for="toastOverlayDuration"
+                  >Overlay Toast Duration (ms)</label
+                >
+                <input
+                  type="number"
+                  id="toastOverlayDuration"
+                  name="toastOverlayDuration"
+                  min="0"
+                  step="1000"
+                />
+              </div>
+              <div class="wgi-field">
+                <label for="toastOsDuration"
+                  >OS Notification Duration (ms)</label
+                >
+                <input
+                  type="number"
+                  id="toastOsDuration"
+                  name="toastOsDuration"
+                  min="0"
+                  step="1000"
+                />
+                <span class="wgi-hint">macOS may enforce its own minimum</span>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="wgi-actions">
+          <button type="submit" class="wgi-btn wgi-btn-primary">
+            Save Settings
+          </button>
+          <span id="save-status" class="wgi-save-status"></span>
+        </div>
+      </form>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
