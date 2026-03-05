@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where Goes the Link — Setup</title>
+    <link rel="stylesheet" href="onboarding.css" />
+  </head>
+  <body>
+    <div class="wgi-onboarding">
+      <div class="wgi-progress">
+        <div class="wgi-progress-bar" id="progress-bar"></div>
+      </div>
+
+      <!-- Step 1: Welcome -->
+      <section class="wgi-step" data-step="1">
+        <div class="wgi-step-content">
+          <div class="wgi-icon-large">
+            <img
+              src="icons/icon-default-128.png"
+              alt="Where Goes the Link"
+              width="80"
+              height="80"
+            />
+          </div>
+          <h1>Welcome to Where Goes the Link</h1>
+          <p class="wgi-lead">
+            Find out where a link actually goes — without ever visiting it.
+          </p>
+          <p>
+            This extension resolves shortened URLs, reveals the full redirect
+            chain, and copies the real destination to your clipboard. No
+            tracking pixels fired, no pages loaded.
+          </p>
+          <div class="wgi-why">
+            <p><strong>Why does this exist?</strong></p>
+            <p>
+              If you use a network-level firewall like Little Snitch with
+              blocklists (such as
+              <a
+                href="https://github.com/ph00lt0/blocklist"
+                target="_blank"
+                rel="noopener"
+                >ph00lt0/blocklist</a
+              >, which blocks over 22,500 short URL domains), you can't visit
+              shortened links at all. Toggling the entire list on and off is
+              cumbersome, and editing individual entries breaks automatic
+              updates.
+            </p>
+            <p>
+              This extension resolves those links for you via a third-party API
+              — the lookup happens on their servers, not your machine. The
+              trade-off is a slight delay while the API follows the redirect
+              chain, but your firewall rules stay intact.
+            </p>
+          </div>
+          <p class="wgi-powered">
+            Powered by the <strong>FREE</strong>
+            <a href="https://unshortlink.com" target="_blank" rel="noopener"
+              >UnshortLink API</a
+            >.
+          </p>
+        </div>
+        <div class="wgi-nav">
+          <span></span>
+          <button class="wgi-btn wgi-btn-primary" data-next>Get Started</button>
+        </div>
+      </section>
+
+      <!-- Step 2: API Key -->
+      <section class="wgi-step" data-step="2" hidden>
+        <div class="wgi-step-content">
+          <h1>Get Your API Key</h1>
+          <p>
+            Create a free account at UnshortLink to get your API key. The free
+            plan includes <strong>500 calls per month</strong> — no credit card
+            needed.
+          </p>
+          <ol class="wgi-steps-list">
+            <li>
+              <a
+                href="https://portal.unshortlink.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                Open UnshortLink Portal
+              </a>
+              and create an account (or log in)
+            </li>
+            <li>Copy your API key from the dashboard</li>
+            <li>Paste it below</li>
+          </ol>
+          <div class="wgi-key-input">
+            <label for="api-key-input">API Key</label>
+            <input
+              type="password"
+              id="api-key-input"
+              placeholder="Paste your API key here"
+              spellcheck="false"
+              autocomplete="off"
+            />
+            <p class="wgi-key-error" id="key-error" hidden>
+              Please enter your API key to continue.
+            </p>
+            <p class="wgi-key-saved" id="key-saved" hidden>API key saved.</p>
+          </div>
+        </div>
+        <div class="wgi-nav">
+          <button class="wgi-btn wgi-btn-secondary" data-prev>Back</button>
+          <button class="wgi-btn wgi-btn-primary" data-next>Next</button>
+        </div>
+      </section>
+
+      <!-- Step 3: Optional Settings -->
+      <section class="wgi-step" data-step="3" hidden>
+        <div class="wgi-step-content">
+          <h1>Optional Settings</h1>
+          <p>
+            You can customize the extension via the Settings page. Access it
+            anytime by right-clicking the extension icon and choosing
+            <strong>Settings</strong>.
+          </p>
+          <div class="wgi-settings-preview">
+            <div class="wgi-preview-item">
+              <strong>API Parameters</strong>
+              <span>Max redirects, request timeout</span>
+            </div>
+            <div class="wgi-preview-item">
+              <strong>Visual Feedback</strong>
+              <span
+                >Icon color durations for processing, success, error
+                states</span
+              >
+            </div>
+            <div class="wgi-preview-item">
+              <strong>Notification Timing</strong>
+              <span
+                >How long the page overlay and OS notifications stay
+                visible</span
+              >
+            </div>
+            <div class="wgi-preview-item">
+              <strong>Quota Override</strong>
+              <span>Manual fallback values for billing cycle tracking</span>
+            </div>
+          </div>
+          <p class="wgi-reassure">
+            The defaults work great out of the box. You can skip this entirely.
+          </p>
+        </div>
+        <div class="wgi-nav">
+          <button class="wgi-btn wgi-btn-secondary" data-prev>Back</button>
+          <button class="wgi-btn wgi-btn-primary" data-next>Next</button>
+        </div>
+      </section>
+
+      <!-- Step 4: Done -->
+      <section class="wgi-step" data-step="4" hidden>
+        <div class="wgi-step-content">
+          <div class="wgi-icon-large">
+            <img
+              src="icons/icon-success-128.png"
+              alt="Ready"
+              width="80"
+              height="80"
+            />
+          </div>
+          <h1>You're All Set</h1>
+          <p class="wgi-lead">
+            Navigate to any page with a shortened URL and click the extension
+            icon to expand it.
+          </p>
+          <p>
+            The expanded URL will be copied to your clipboard automatically, and
+            you'll see the full redirect chain in a toast notification.
+          </p>
+          <div class="wgi-try-it">
+            <p><strong>Try it now:</strong></p>
+            <p>
+              Go to a shortened URL (like a t.co or bit.ly link) and click the
+              <img
+                src="icons/icon-default-32.png"
+                alt="icon"
+                width="16"
+                height="16"
+                style="vertical-align: middle"
+              />
+              icon in the toolbar.
+            </p>
+          </div>
+        </div>
+        <div class="wgi-nav">
+          <button class="wgi-btn wgi-btn-secondary" data-prev>Back</button>
+          <button class="wgi-btn wgi-btn-primary" id="finish-btn">
+            Finish
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="onboarding.js"></script>
+  </body>
+</html>

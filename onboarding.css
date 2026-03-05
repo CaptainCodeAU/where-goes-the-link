@@ -1,0 +1,288 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background: #f5f5f7;
+  color: #1a1a1a;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.wgi-onboarding {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Progress bar */
+.wgi-progress {
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.wgi-progress-bar {
+  height: 100%;
+  background: #2d2d2d;
+  border-radius: 2px;
+  width: 25%;
+  transition: width 0.3s ease;
+}
+
+/* Steps */
+.wgi-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wgi-step[hidden] {
+  display: none;
+}
+
+.wgi-step-content {
+  flex: 1;
+}
+
+.wgi-step h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.wgi-step p {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.wgi-lead {
+  font-size: 17px !important;
+  color: #222 !important;
+  font-weight: 500;
+}
+
+.wgi-why {
+  margin: 16px 0;
+  padding: 14px 16px;
+  background: #f8f8fa;
+  border: 1px solid #e8e8ec;
+  border-radius: 10px;
+  font-size: 13px !important;
+}
+
+.wgi-why p {
+  font-size: 13px !important;
+  color: #555 !important;
+  margin-bottom: 8px;
+}
+
+.wgi-why p:last-child {
+  margin-bottom: 0;
+}
+
+.wgi-why a {
+  color: #4a90d9;
+  text-decoration: none;
+}
+
+.wgi-why a:hover {
+  text-decoration: underline;
+}
+
+.wgi-powered {
+  margin-top: 20px;
+  font-size: 13px !important;
+  color: #777 !important;
+}
+
+.wgi-powered a {
+  color: #4a90d9;
+  text-decoration: none;
+}
+
+.wgi-powered a:hover {
+  text-decoration: underline;
+}
+
+.wgi-icon-large {
+  margin-bottom: 20px;
+}
+
+.wgi-icon-large img {
+  border-radius: 16px;
+}
+
+/* Steps list */
+.wgi-steps-list {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.wgi-steps-list li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.wgi-steps-list a {
+  color: #4a90d9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.wgi-steps-list a:hover {
+  text-decoration: underline;
+}
+
+/* API key input */
+.wgi-key-input {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.wgi-key-input label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.wgi-key-input input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  background: #fafafa;
+  font-family: monospace;
+}
+
+.wgi-key-input input:focus {
+  outline: none;
+  border-color: #4a90d9;
+  background: #fff;
+}
+
+.wgi-key-error {
+  color: #b91c1c !important;
+  font-size: 13px !important;
+  margin-top: 6px;
+  margin-bottom: 0 !important;
+}
+
+.wgi-key-saved {
+  color: #2eae52 !important;
+  font-size: 13px !important;
+  margin-top: 6px;
+  margin-bottom: 0 !important;
+  font-weight: 500;
+}
+
+/* Settings preview */
+.wgi-settings-preview {
+  margin: 20px 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.wgi-preview-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wgi-preview-item:last-child {
+  border-bottom: none;
+}
+
+.wgi-preview-item strong {
+  font-size: 13px;
+  color: #222;
+}
+
+.wgi-preview-item span {
+  font-size: 12px;
+  color: #888;
+}
+
+.wgi-reassure {
+  font-size: 13px !important;
+  color: #888 !important;
+  font-style: italic;
+}
+
+/* Try it */
+.wgi-try-it {
+  margin-top: 20px;
+  background: #f0faf3;
+  border: 1px solid #d0ecd8;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.wgi-try-it p {
+  font-size: 14px !important;
+  color: #333 !important;
+  margin-bottom: 4px;
+}
+
+/* Navigation */
+.wgi-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.wgi-btn {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.wgi-btn-primary {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.wgi-btn-primary:hover {
+  background: #444;
+}
+
+.wgi-btn-secondary {
+  background: #eee;
+  color: #444;
+}
+
+.wgi-btn-secondary:hover {
+  background: #ddd;
+}
