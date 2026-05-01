@@ -18,15 +18,8 @@ chrome.runtime.onMessage.addListener((msg) => {
 });
 
 async function writeToClipboard(text) {
-  // With clipboardWrite permission, this should work in offscreen documents
-  try {
-    await navigator.clipboard.writeText(text);
-    return;
-  } catch (e) {
-    console.warn("offscreen: navigator.clipboard.writeText failed:", e.message);
-  }
-
-  // Fallback: execCommand with visible textarea
+  // navigator.clipboard.writeText requires a focused document, which offscreen
+  // documents never are. Use execCommand("copy") on a textarea instead.
   const textarea = document.createElement("textarea");
   textarea.value = text;
   document.body.appendChild(textarea);

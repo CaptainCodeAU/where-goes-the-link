@@ -100,8 +100,9 @@ async function callUnshortLinkApi(url) {
     );
 
   const controller = new AbortController();
-  // Overall timeout: allow enough time for multiple redirect hops + API processing
-  const overallTimeout = apiTimeout * 3 + 5000;
+  // Overall timeout: allow enough time for multiple redirect hops + API processing.
+  // Slow chains (t.co → x.com) can take >20s upstream, so give generous headroom.
+  const overallTimeout = apiTimeout * 6 + 5000;
   const timeoutId = setTimeout(() => controller.abort(), overallTimeout);
 
   try {
